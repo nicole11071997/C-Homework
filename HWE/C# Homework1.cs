@@ -6,7 +6,7 @@ namespace Homework
         {
             Random rng = new Random();
             int a = rng.Next(100); //電腦隨機的答案
-            Console.WriteLine(a);
+            //Console.WriteLine(a); //顯示電腦隨機的答案
             int x = 0; //最小的
             int y = 99; //最大的
 
@@ -18,7 +18,7 @@ namespace Homework
             while (g !=a ) {
                 if (g < x | g > y)
                 {
-                    Console.WriteLine("請玩家重新輸入");
+                    Console.WriteLine("超過範圍，請玩家重新輸入");
                     g = int.Parse(Console.ReadLine());
                 }
                 if (g < a)
