@@ -17,7 +17,7 @@ namespace Homework1
             //輸出感染者的資料(顯示感染者 ID)
             for (int i = 0; i <= g-1  ; i++)
             {
-                Console.Write("{0,2}", i);
+                Console.Write("{0,4}", i);
             }
 
             Console.WriteLine();
@@ -38,7 +38,7 @@ namespace Homework1
             //輸出接觸者洗牌後的資料(顯示接觸者列表)
             for (int i = 0; i < a.Length; i++)
             {
-                Console.Write("{0,2}", a[i]);
+                Console.Write("{0,4}", a[i]);
             }
 
             Console.WriteLine();
@@ -55,7 +55,7 @@ namespace Homework1
 
             while (!visited[current])
             {
-                Console.Write("{0,1}", current); // 輸出當前感染者
+                Console.Write("{0,3}", current); // 輸出當前感染者
                 visited[current] = true;         // 標記為已感染
                 current = a[current];            // 感染下一個人
             }
