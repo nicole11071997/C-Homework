@@ -1,9 +1,15 @@
+using System.Reflection.Emit;
+
 namespace Homework2
 {
-    internal class Program
+    interface IPlayer
     {
-        class player
-        {
+        int Guess(int x, int y);
+    }
+
+
+    class HumanPlayer : IPlayer
+    {
             public int Guess(int x,int y)
             {
                 Console.WriteLine("請猜數字?");
@@ -14,21 +20,20 @@ namespace Homework2
                     }
                 return g;
             }
-        }
         
         class Game
         {
             private int a;
             private int x = 0; //最小的
             private int y = 99; //最大的
-            private player player;
+            private IPlayer player;
 
-            public Game()
+            public Game(IPlayer player)
             {
+                this.player = player;
                 Random rng = new Random();
                 a = rng.Next(100); //電腦隨機的答案
                 Console.WriteLine($"答案是：{a}");
-                player = new player();
             }
 
             public void start()
@@ -74,11 +79,12 @@ namespace Homework2
             }
         }
 
-        internal class program
+        class program
         {
             static void Main(string[] args)
             {
-                Game game = new Game();
+                IPlayer player = new HumanPlayer();
+                Game game = new Game(player);
                 game.start();
             }
         }
